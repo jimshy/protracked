@@ -18,11 +18,7 @@
                             $status=false;
 
                         }
-                       
-                    
              }
-             
-            
             }
             echo $status;
             ?>

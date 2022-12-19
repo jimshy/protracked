@@ -106,40 +106,52 @@ $("#brand-all").click(function () {
 
     $(".add-to-cart-button1").click(function () 
     {
-        var id=$(this).data("value");
+        var stock=$(this).data("value");
+        if(stock<50)
+        {
+            Swal.fire({
+            title: 'hurry!',
+            text: "only a few items left",
+            icon: 'warning',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Add to Cart'
+        });
 
-        $.ajax({
-                url: "add_to_cart_prompt_message.php",
-                type: "post",
-                data: {
-                    data:id
-                   
-                },
-                success: function (response) {
-                    if(response==true){
-                        Swal.fire({
-                            title: 'hurry!',
-                            text: "only a few items left",
-                            icon: 'warning',
-                            confirmButtonColor: '#3085d6',
-                            confirmButtonText: 'Buy'
-                          });
-                          
-                                              }
-                                              else{
-                                                  Swal.fire({
-                            title: 'Item added to Cart',
-                            confirmButtonColor: '#3085d6',
-                            confirmButtonText: 'Go to Cart'
-                          });
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                console.log(textStatus, errorThrown);
-                }
-            });  
+    }
+            else{
+            Swal.fire({
+            title: 'Item added to Cart',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Go to Cart'
+        });
+     } 
+        
+    }); 
+
+    $("#product_interface").on('click',".add-to-cart-button",function () {
+        var stock=$(this).data("value");
+        if(stock<50)
+        {
+            Swal.fire({
+            title: 'hurry!',
+            text: "only a few items left",
+            icon: 'warning',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Add to cart'
+        });
+
+    }
+            else{
+            Swal.fire({
+            title: 'Item added to Cart',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Go to Cart'
+        });
+     } 
         
     });
+        
+    
     
  
   

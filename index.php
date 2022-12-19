@@ -183,39 +183,7 @@
     <input type="hidden" id="hidden_category" value="">
 <script>
      
-    $("#product_interface").on('click',".add-to-cart-button",function () {
-        var id=$(this).data("value");
-
-        $.ajax({
-                url: "add_to_cart_prompt_message.php",
-                type: "post",
-                data: {
-                    data:id
-                   
-                },
-                success: function (response) {
-                    if(response==true){
-                        Swal.fire({
-  title: 'hurry!',
-  text: "only a few items left",
-  icon: 'warning',
-  confirmButtonColor: '#3085d6',
-  confirmButtonText: 'Buy'
-});
-
-                    }
-                    else{
-                        Swal.fire({
-  title: 'Item added to Cart',
-  confirmButtonColor: '#3085d6',
-  confirmButtonText: 'Go to Cart'
-});
-                    }
-                },
-               
-            });  
-        
-    });
+    
     
     
 

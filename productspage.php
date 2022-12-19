@@ -12,11 +12,11 @@
                     if($value["category"]==$category){
                         if (count($check_data)!=0){
                             if(in_array($value["brand"],$check_data)){
-                            $array_rating[]=array("rating"=>$value["rating"],"title"=>$value["title"],"price"=>$value["price"],"discountpercentage"=>$value["discountPercentage"],"thumbnail"=>$value["thumbnail"],"id"=>$value["id"]);            
+                            $array_rating[]=array("rating"=>$value["rating"],"title"=>$value["title"],"price"=>$value["price"],"discountpercentage"=>$value["discountPercentage"],"thumbnail"=>$value["thumbnail"],"stock"=>$value["stock"]);            
                     
                             }
                     }
-                    else{$array_rating[]=array("rating"=>$value["rating"],"title"=>$value["title"],"price"=>$value["price"],"discountpercentage"=>$value["discountPercentage"],"thumbnail"=>$value["thumbnail"],"id"=>$value["id"]);}
+                    else{$array_rating[]=array("rating"=>$value["rating"],"title"=>$value["title"],"price"=>$value["price"],"discountpercentage"=>$value["discountPercentage"],"thumbnail"=>$value["thumbnail"],"stock"=>$value["stock"]);}
              }
             
         }
@@ -53,20 +53,20 @@
                 $array_key=array_column($array_rating, $sort_variable);
                 array_multisort($array_key, $sort_order,$array_rating);    
                 for($i=0;$i<sizeof($array_rating);$i++){
-                priceInterface($array_rating[$i]['thumbnail'],$array_rating[$i]['title'],$array_rating[$i]['price'],$array_rating[$i]['discountpercentage'],$array_rating[$i]['id'],$array_rating[$i]['rating']);
+                priceInterface($array_rating[$i]['thumbnail'],$array_rating[$i]['title'],$array_rating[$i]['price'],$array_rating[$i]['discountpercentage'],$array_rating[$i]['stock'],$array_rating[$i]['rating']);
                 }
               }
               else{
                 $array_key=$array_rating;
                 for($i=0;$i<sizeof($array_rating);$i++){
-                  priceInterface($array_rating[$i]['thumbnail'],$array_rating[$i]['title'],$array_rating[$i]['price'],$array_rating[$i]['discountpercentage'],$array_rating[$i]['id'],$array_rating[$i]['rating']);
+                  priceInterface($array_rating[$i]['thumbnail'],$array_rating[$i]['title'],$array_rating[$i]['price'],$array_rating[$i]['discountpercentage'],$array_rating[$i]['stock'],$array_rating[$i]['rating']);
                   }
               }
             
             
         
 
-        function priceInterface($thumbnail,$title,$price,$discount,$id_product,$rating){
+        function priceInterface($thumbnail,$title,$price,$discount,$stock,$rating){
 ?>
 <div class="col-lg-4 col-md-6 col-sm-12 pb-1" >
             <div class="card product-item border-0 mb-4">
@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="card-footer d-flex justify-content-between bg-light border">
-                <a  data-value="<?php echo $id_product?>"  class="add-to-cart-button btn btn-sm text-dark p-0 pointer " >
+                <a  data-value="<?php echo $stock?>"  class="add-to-cart-button btn btn-sm text-dark p-0 pointer " >
                 <i  class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
                 <a   class=" btn btn-sm text-dark p-0 pointer " >
                 <i  class="fas fa-star text-primary mr-1"></i><?php echo $rating?></a>
