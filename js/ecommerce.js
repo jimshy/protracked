@@ -76,7 +76,7 @@ $("#brand-all").click(function () {
     });
 
     $("#sort_by_id").on('change',function () {
-        var categ=$('#hidden_category').val();        ;
+        var categ=$('#hidden_category').val();        
         var data=$(this).val();        
           var values = new Array();
           $.each($("input[name='brand_name[]']:checked"), function() {
