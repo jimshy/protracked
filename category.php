@@ -9,15 +9,9 @@
 $url = "https://dummyjson.com/products?limit=100";
 $json = file_get_contents($url);
 $json_data = json_decode($json, true);
-//  print_r($json);
-// $currency_name=array();
-// $population_sorted=array();
+
 $array_category=array();
-// print_r("<pre>");
-// print_r($json_data["products"]);
 foreach ($json_data["products"] as $key => $value) {  
-    // print_r("<pre>");
-    // print_r($value["category"]);
     array_push($array_category,$value["category"]);
 
 }

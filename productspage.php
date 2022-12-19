@@ -12,7 +12,6 @@
                     if($value["category"]==$category){
                         if (count($check_data)!=0){
                             if(in_array($value["brand"],$check_data)){
-                            // array_push($array_category,$value["rating"]);
                             $array_rating[]=array("rating"=>$value["rating"],"title"=>$value["title"],"price"=>$value["price"],"discountpercentage"=>$value["discountPercentage"],"thumbnail"=>$value["thumbnail"],"id"=>$value["id"]);            
                     
                             }
