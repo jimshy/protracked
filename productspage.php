@@ -21,7 +21,6 @@
              }
             
         }
-        
         switch ($selected_data) {
           case "Price (High to Low)":
             $sort_variable="price";
@@ -31,20 +30,20 @@
             $sort_variable="price";
             $sort_order=SORT_ASC;
             break;
-          case "Discount (High to Low)":
-            $sort_variable="price";
+          case "Discount(High to Low)":
+            $sort_variable="discountpercentage";
             $sort_order=SORT_DESC;
             break;
-          case "Discount (Low to High)":
-            $sort_variable="price";
+          case "Discount(Low to High)":
+            $sort_variable="discountpercentage";
             $sort_order=SORT_ASC;
             break;
           case "Rating (High to Low)":
-            $sort_variable="price";
+            $sort_variable="rating";
             $sort_order=SORT_DESC;
             break;
           case "Rating (Low to High)":
-            $sort_variable="price";
+            $sort_variable="rating";
             $sort_order=SORT_ASC;
             break;
           default:
