@@ -2,13 +2,17 @@
  session_start();
  $json_data = $_SESSION["product_data"];
  $selected_data=$_POST['data'];
- $category=$_POST['category'];
+$category=$_POST['category'];
+$status=$_POST['category_click'];
  $check_data=json_decode($_POST['check_data']);
         $array_rating=array();
         $array_key=array();
         foreach ($json_data["products"] as $key => $value) {  
                     if($value["category"]==$category){
-                        if (count($check_data)!=0){
+                      if($status=="1"){
+                        $array_rating[]=array("rating"=>$value["rating"],"title"=>$value["title"],"price"=>$value["price"],"discountpercentage"=>$value["discountPercentage"],"thumbnail"=>$value["thumbnail"],"stock"=>$value["stock"]);
+                      }
+                       else if (count($check_data)!=0){
                             if(in_array($value["brand"],$check_data)){
                             $array_rating[]=array("rating"=>$value["rating"],"title"=>$value["title"],"price"=>$value["price"],"discountpercentage"=>$value["discountPercentage"],"thumbnail"=>$value["thumbnail"],"stock"=>$value["stock"]);            
                     
@@ -16,7 +20,7 @@
                     }
                     else{$array_rating[]=array("rating"=>$value["rating"],"title"=>$value["title"],"price"=>$value["price"],"discountpercentage"=>$value["discountPercentage"],"thumbnail"=>$value["thumbnail"],"stock"=>$value["stock"]);}
              }
-            
+          
         }
         switch ($selected_data) {
           case "Price (High to Low)":

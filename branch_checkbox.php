@@ -59,7 +59,8 @@ for (var i = 0; i < checkboxes.length; i++) {
                 data: {
                     data:data,
                     category:categ,
-                    check_data:jsonString
+                    check_data:jsonString,
+                    category_click:"0"
                 },
                 success: function (response) {
                     console.log(response);

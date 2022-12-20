@@ -1,7 +1,4 @@
     $(".category_a").click(function () {
-        $("#sort_id").show();
-        $("#brand_id").show();
-
        var categ=$(this).data("value");
       var data=$('#sort_by_id :selected').val();        
         var values = new Array();
@@ -25,12 +22,15 @@
                 data: {
                     data:data,
                     category:categ,
-                    check_data:jsonString
+                    check_data:jsonString,
+                    category_click:"1"
                 },
                 success: function (response) {
                     console.log(response);
 
                     $("#product_interface").html(response);
+                    $("#sort_id").show();
+                    $("#brand_id").show();
                 // You will get response from your PHP page (what you echo or print)
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
@@ -56,7 +56,8 @@
                 data: {
                     data:data,
                     category:categ,
-                    check_data:jsonString
+                    check_data:jsonString,
+                    category_click:"0"
                 },
                 success: function (response) {
 
