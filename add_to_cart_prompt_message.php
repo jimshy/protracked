@@ -1,8 +1,7 @@
 <?php 
+session_start();
+$json_data = $_SESSION["product_data"];
  $id=$_POST['data'];
-        $url = "https://dummyjson.com/products?limit=100";
-        $json = file_get_contents($url);
-        $json_data = json_decode($json, true);
         $array_rating=array();
         $array_key=array();
         $status=false;

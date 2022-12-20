@@ -1,8 +1,7 @@
 <?php
+session_start();
+$json_data = $_SESSION["product_data"];
       $category = $_POST['var'];    
-      $url = "https://dummyjson.com/products?limit=100";
-      $json = file_get_contents($url);
-      $json_data = json_decode($json, true);
       $array_category=array();
       foreach ($json_data["products"] as $key => $value) { 
 
@@ -12,7 +11,6 @@
       }
            ?>
           <div class="form-group">
-
           <div class="checkbox">
           <label>
           <input type="checkbox"  class="check productclass"  id="brand-all"  > Check All

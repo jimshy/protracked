@@ -1,11 +1,9 @@
 <?php 
+ session_start();
+ $json_data = $_SESSION["product_data"];
  $selected_data=$_POST['data'];
  $category=$_POST['category'];
  $check_data=json_decode($_POST['check_data']);
-
-        $url = "https://dummyjson.com/products?limit=100";
-        $json = file_get_contents($url);
-        $json_data = json_decode($json, true);
         $array_rating=array();
         $array_key=array();
         foreach ($json_data["products"] as $key => $value) {  

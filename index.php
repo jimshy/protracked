@@ -1,3 +1,12 @@
+<?php
+// Start the session
+$url = "https://dummyjson.com/products?limit=100";
+$json = file_get_contents($url);
+$json_data1 = json_decode($json, true);
+session_start();
+$_SESSION["product_data"] = $json_data1;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -127,12 +136,9 @@
             <div class="row pb-3" id="product_interface">
                 
             <?php
-                $url = "https://dummyjson.com/products?limit=100";
-                $json = file_get_contents($url);
-                $json_data = json_decode($json, true);
+                $json_data= $_SESSION["product_data"];
                 $array_rating=array();
                 $array_key=array();
-                
                 foreach ($json_data["products"] as $key => $value) {
                     ?>
                      <div class="col-lg-4 col-md-6 col-sm-12 pb-1" > 

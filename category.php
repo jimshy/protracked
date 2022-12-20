@@ -5,11 +5,7 @@
                 <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
                     <div class="navbar-nav w-100 overflow-hidden" >
                     <?php
-
-$url = "https://dummyjson.com/products?limit=100";
-$json = file_get_contents($url);
-$json_data = json_decode($json, true);
-
+$json_data = $_SESSION["product_data"];
 $array_category=array();
 foreach ($json_data["products"] as $key => $value) {  
     array_push($array_category,$value["category"]);
